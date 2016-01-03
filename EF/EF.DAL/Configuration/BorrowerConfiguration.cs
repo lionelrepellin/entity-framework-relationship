@@ -15,20 +15,30 @@ namespace EF.DAL.Configuration
             ToTable("emprunteur");
             HasKey(b => b.Id);
 
-            Property(b => b.Id).HasColumnName("id");
-            Property(b => b.Firstname).HasColumnName("prenom");
-            Property(b => b.Lastname).HasColumnName("nom");
-            Property(b => b.Age).HasColumnName("age");
+            Property(b => b.Id)
+                .HasColumnName("id");
 
+            Property(b => b.Firstname)
+                .HasColumnName("prenom")
+                .HasMaxLength(50)
+                .IsRequired();
+
+            Property(b => b.Lastname)
+                .HasColumnName("nom")
+                .HasMaxLength(50)
+                .IsRequired();
+
+            Property(b => b.Age)
+                .HasColumnName("age");
+
+            // one-to-zero or one relationship
+            // PK becomes a FK in another table
             HasOptional(b => b.Address).WithRequired();
 
-            HasMany(b => b.Loans).WithRequired(l => l.Borrower);           
-            
-            //.IsRequired()
-            //.HasMaxLength(8)
-            //.IsFixedLength()
-            //.HasColumnName("pays")
-            //.HasMaxLength(50);
+            // one-to-many relationship
+            HasMany(b => b.Loans)
+                .WithRequired(l => l.Borrower)
+                .HasForeignKey(b => b.BorrowerId);            
         }
     }
 }

@@ -11,6 +11,7 @@ namespace EF.DAL.Configuration
 {
     public class LibraryItemConfiguration : EntityTypeConfiguration<LibraryItem>
     {
+        // POI: because of inheritance you can see Discriminator column in article table
         public LibraryItemConfiguration()
         {
             ToTable("article");
@@ -23,8 +24,10 @@ namespace EF.DAL.Configuration
             Property(a => a.Language).HasColumnName("langage");
             Property(a => a.CatalogId).HasColumnName("catalogue_id");
 
-            HasMany(a => a.Loans).WithRequired(l => l.LibraryItem).HasForeignKey(l => l.LibraryItemId);
-            //HasMany(a => a.Loans).WithRequired();
+            // one-to-many relationship
+            HasMany(a => a.Loans)
+                .WithRequired(l => l.LibraryItem)
+                .HasForeignKey(l => l.LibraryItemId);
         }
     }
 }

@@ -18,8 +18,10 @@ namespace EF.DAL.Configuration
             Property(c => c.Id).HasColumnName("id");
             Property(c => c.Type).HasColumnName("type");
 
-            HasMany(c => c.Items).WithRequired(l => l.Catalog).HasForeignKey(l => l.CatalogId);
-            //HasMany(c => c.Items).WithOptional().HasForeignKey(l => l.CatalogId);
+            // one-to-many relationship
+            HasMany(c => c.Items)
+                .WithRequired(l => l.Catalog)
+                .HasForeignKey(l => l.CatalogId);
         }        
     }
 }

@@ -20,10 +20,6 @@ namespace EF.DAL.Configuration
                 p.LibraryItemId
             });
             
-            Property(p => p.Id)
-                .HasColumnName("id")
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-
             Property(p => p.DateBorrowed)
                 .HasColumnName("date_emprunt")
                 .HasColumnType("datetime2")

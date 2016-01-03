@@ -9,7 +9,6 @@ namespace EF.Domain
 {
     public class Loan
     {
-        public int Id { get; set; }
         public DateTime DateBorrowed { get; set; }
         public DateTime DueDate { get; set; }
         public DateTime? DateReturned { get; set; }
