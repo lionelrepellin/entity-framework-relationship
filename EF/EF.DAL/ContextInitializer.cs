@@ -15,12 +15,23 @@ namespace EF.DAL
     {
         protected override void Seed(Context context)
         {
-            var catalog = new Catalog
+            #region Catalogs
+
+            var catalogGeneral = new Catalog
             {
                 Type = CatalogType.General
             };
-            context.Catalogs.Add(catalog);
-            //context.SaveChanges();
+            context.Catalogs.Add(catalogGeneral);
+
+            var catalogOther = new Catalog
+            {
+                Type = CatalogType.Other
+            };
+            context.Catalogs.Add(catalogOther);
+
+            #endregion
+
+            #region Borrowers
 
             var borrower1 = new Borrower
             {
@@ -45,6 +56,38 @@ namespace EF.DAL
             };
             context.Borrowers.Add(borrower2);
 
+            #endregion
+
+            #region Genres
+
+            var action = new Genre { Description = "Action" };
+            context.Genres.Add(action);
+
+            var animation = new Genre { Description = "Animation" };
+            context.Genres.Add(animation);
+
+            var biography = new Genre { Description = "Biography" };
+            context.Genres.Add(biography);
+            
+            var comedy = new Genre { Description = "Comedy" };
+            context.Genres.Add(comedy);
+
+            var drama = new Genre { Description = "Drama" };
+            context.Genres.Add(drama);
+
+            var music = new Genre { Description = "Music" };
+            context.Genres.Add(music);
+
+            var thriller = new Genre { Description = "Thriller" };
+            context.Genres.Add(thriller);
+
+            var western = new Genre { Description = "Western" };
+            context.Genres.Add(western);
+            
+            #endregion
+
+            #region Items
+
             var book1 = new Book
             {
                 Status = ItemStatus.Loaned,
@@ -52,7 +95,7 @@ namespace EF.DAL
                 Title = "EF for noobs and I",
                 Author = "Just me",
                 ISBN = "312645030560465146",
-                Catalog = catalog
+                Catalog = catalogGeneral
             };
             context.LibraryItems.Add(book1);
 
@@ -63,7 +106,8 @@ namespace EF.DAL
                 Duration = 180,
                 Summary = "il était une fois...",
                 Title = "Dans l'ouest il se passe des trucs",
-                Catalog = catalog
+                Catalog = catalogGeneral,
+                Genres = new List<Genre> { western, drama }
             };
             context.LibraryItems.Add(dvd1);
 
@@ -74,7 +118,8 @@ namespace EF.DAL
                 Duration = 120,
                 Summary = "bla bla bla",
                 Title = "Le titre",
-                Catalog = catalog
+                Catalog = catalogGeneral,
+                Genres = new List<Genre> { comedy }
             };
             context.LibraryItems.Add(dvd2);
 
@@ -85,9 +130,13 @@ namespace EF.DAL
                 Status = ItemStatus.Available,
                 Title = "Fear of the dark",
                 TracksNumber = 14,
-                Catalog = catalog
+                Catalog = catalogGeneral
             };
             context.LibraryItems.Add(cd1);
+
+            #endregion
+
+            #region Loans
 
             var loan1 = new Loan
             {
@@ -115,6 +164,8 @@ namespace EF.DAL
                 LibraryItem = cd1
             };
             context.Loans.Add(loan3);
+
+            #endregion
 
             context.SaveChanges();
 

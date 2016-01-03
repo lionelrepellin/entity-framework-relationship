@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CatalogType.cs" />
+    <Compile Include="Genre.cs" />
     <Compile Include="Items\Book.cs" />
     <Compile Include="Borrower\Borrower.cs" />
     <Compile Include="Borrower\Address.cs" />

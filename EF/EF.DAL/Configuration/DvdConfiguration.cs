@@ -14,6 +14,13 @@ namespace EF.DAL.Configuration
         {
             Property(d => d.Duration).HasColumnName("duree");
             Property(d => d.Summary).HasColumnName("resume");
+
+            HasMany(d => d.Genres).WithMany().Map(x =>
+            {
+                x.MapLeftKey("article_id");
+                x.MapRightKey("genre_id");
+                x.ToTable("genre_article");
+            });
         }
     }
 }

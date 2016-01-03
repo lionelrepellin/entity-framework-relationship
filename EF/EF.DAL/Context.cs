@@ -13,8 +13,9 @@ namespace EF.DAL
 {
     public class Context : DbContext
     {
-        public DbSet<Catalog> Catalogs { get; set; }
         public DbSet<Borrower> Borrowers { get; set; }
+        public DbSet<Catalog> Catalogs { get; set; }
+        public DbSet<Genre> Genres { get; set; }
         public DbSet<LibraryItem> LibraryItems { get; set; }
         public DbSet<Loan> Loans { get; set; }
 
@@ -38,6 +39,9 @@ namespace EF.DAL
 
             // catalog
             modelBuilder.Configurations.Add(new CatalogConfiguration());
+
+            // genres
+            modelBuilder.Configurations.Add(new GenreConfiguration());
 
             // library items
             modelBuilder.Configurations.Add(new LibraryItemConfiguration());

@@ -55,6 +55,7 @@
     <Compile Include="Configuration\CatalogConfiguration.cs" />
     <Compile Include="Configuration\CdConfiguration.cs" />
     <Compile Include="Configuration\DvdConfiguration.cs" />
+    <Compile Include="Configuration\GenreConfiguration.cs" />
     <Compile Include="Configuration\LibraryItemConfiguration.cs" />
     <Compile Include="Configuration\LoanConfiguration.cs" />
     <Compile Include="Context.cs" />
