@@ -8,6 +8,7 @@ namespace EF.Domain.Borrower
 {
     public class Address
     {
+        // PK & FK
         public int BorrowerId { get; set; }
 
         public string Street { get; set; }

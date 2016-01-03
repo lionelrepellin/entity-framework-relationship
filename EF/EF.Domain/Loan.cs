@@ -13,9 +13,11 @@ namespace EF.Domain
         public DateTime DueDate { get; set; }
         public DateTime? DateReturned { get; set; }
 
+        // FK
         public int BorrowerId { get; set; }
         public virtual EF.Domain.Borrower.Borrower Borrower { get; set; }
 
+        // FK
         public int LibraryItemId { get; set; }
         public virtual LibraryItem LibraryItem { get; set; }
     }

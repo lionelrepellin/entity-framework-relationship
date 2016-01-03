@@ -37,13 +37,17 @@ namespace EF
                 
                 //var borrower = ctx.Borrowers.Include(b => b.Loans).First();
                 */
-                
+
+                //var borrowersCount = ctx.Database.SqlQuery<int>("SELECT COUNT(0) FROM emprunteur").First();
+
+                var dvd = ctx.LibraryItems.OfType<DVD>().First();
+
+
 
                 var borrower = ctx.Borrowers
                                     //.Include(b => b.Address)
                                     .First();
-                //.Select(b => b.Loans).Select(c => c.)
-                //.Select(c => c.Select(a => a.Borrower))
+                
 
 
                 /*

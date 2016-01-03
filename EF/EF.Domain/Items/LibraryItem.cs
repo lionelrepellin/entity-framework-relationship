@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EF.Domain.Items
 {
-    public class LibraryItem
+    public abstract class LibraryItem
     {
         public int Id { get; set; }
         public ItemStatus Status { get; set; }
