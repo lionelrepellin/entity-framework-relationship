@@ -1,4 +1,6 @@
 ﻿using EF.Domain;
+using EF.Domain.Borrower;
+using EF.Domain.Items;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,8 +10,8 @@ using System.Threading.Tasks;
 
 namespace EF.DAL
 {
-    public class ContextInitializer : CreateDatabaseIfNotExists<Context>
-//    public class ContextInitializer : DropCreateDatabaseAlways<Context>
+//    public class ContextInitializer : CreateDatabaseIfNotExists<Context>
+    public class ContextInitializer : DropCreateDatabaseAlways<Context>
     {
         protected override void Seed(Context context)
         {
@@ -46,7 +48,7 @@ namespace EF.DAL
             var book1 = new Book
             {
                 Status = ItemStatus.Loaned,
-                Language = Languages.French,
+                Language = Language.French,
                 Title = "EF for noobs and I",
                 Author = "Just me",
                 ISBN = "312645030560465146",
@@ -57,7 +59,7 @@ namespace EF.DAL
             var dvd1 = new DVD
             {
                 Status = ItemStatus.Loaned,
-                Language = Languages.Dutch,
+                Language = Language.Dutch,
                 Duration = 180,
                 Summary = "il était une fois...",
                 Title = "Dans l'ouest il se passe des trucs",
@@ -68,7 +70,7 @@ namespace EF.DAL
             var dvd2 = new DVD
             {
                 Status = ItemStatus.Available,
-                Language = Languages.Spanish,
+                Language = Language.Spanish,
                 Duration = 120,
                 Summary = "bla bla bla",
                 Title = "Le titre",
@@ -79,7 +81,7 @@ namespace EF.DAL
             var cd1 = new CD
             {
                 Artist = "Iron Maiden",
-                Language = Languages.English,
+                Language = Language.English,
                 Status = ItemStatus.Available,
                 Title = "Fear of the dark",
                 TracksNumber = 14,

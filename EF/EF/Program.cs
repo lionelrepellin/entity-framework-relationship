@@ -1,5 +1,7 @@
 ﻿using EF.DAL;
 using EF.Domain;
+using EF.Domain.Borrower;
+using EF.Domain.Items;
 using System.Data.Entity;
 using System;
 using System.Collections.Generic;

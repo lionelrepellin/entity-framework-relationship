@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EF.Domain.Items;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,12 +7,6 @@ using System.Threading.Tasks;
 
 namespace EF.Domain
 {
-    public enum CatalogType
-    {
-        General,
-        Other
-    }
-
     public class Catalog
     {
         public int Id { get; set; }

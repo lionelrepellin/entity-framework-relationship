@@ -35,9 +35,7 @@ namespace EF.DAL.Configuration
                 .HasPrecision(0);
 
             Property(p => p.DateReturned)
-                .HasColumnName("date_retour")
-                .HasColumnType("datetime2")
-                .HasPrecision(0);
+                .HasColumnName("date_retour");
 
             Property(p => p.BorrowerId)
                 .HasColumnName("emprunteur_id");

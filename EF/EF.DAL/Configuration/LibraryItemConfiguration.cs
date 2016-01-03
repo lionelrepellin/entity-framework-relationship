@@ -1,11 +1,11 @@
-﻿using EF.Domain;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EF.Domain.Items;
 
 namespace EF.DAL.Configuration
 {
@@ -21,7 +21,7 @@ namespace EF.DAL.Configuration
             Property(a => a.Title).HasColumnName("titre");
             Property(a => a.Status).HasColumnName("statut");
             Property(a => a.Language).HasColumnName("langage");
-            //Property(a => a.CatalogId).HasColumnName("catalogue_id");
+            Property(a => a.CatalogId).HasColumnName("catalogue_id");
 
             HasMany(a => a.Loans).WithRequired(l => l.LibraryItem).HasForeignKey(l => l.LibraryItemId);
             //HasMany(a => a.Loans).WithRequired();

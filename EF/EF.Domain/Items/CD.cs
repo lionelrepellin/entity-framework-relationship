@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EF.Domain
+namespace EF.Domain.Items
 {
     public class CD : LibraryItem
     {

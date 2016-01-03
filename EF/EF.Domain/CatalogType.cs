@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace EF.Domain
 {
-    public class Book : LibraryItem
+    public enum CatalogType
     {
-        public string Author { get; set; }
-        public string ISBN { get; set; }
+        General,
+        Other
     }
 }
