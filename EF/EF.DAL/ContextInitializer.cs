@@ -94,7 +94,7 @@ namespace EF.DAL
                 Language = Language.French,
                 Title = "EF for noobs and I",
                 Author = "Just me",
-                ISBN = "312645030560465146",
+                ISBN = "3126450305604",
                 Catalog = catalogGeneral
             };
             context.LibraryItems.Add(book1);

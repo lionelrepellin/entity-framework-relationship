@@ -13,6 +13,7 @@ namespace EF.Domain.Items
         public Language Language { get; set; }
         public string Title { get; set; }
 
+        // FK
         public int CatalogId { get; set; }
         public virtual Catalog Catalog { get; set; }
 

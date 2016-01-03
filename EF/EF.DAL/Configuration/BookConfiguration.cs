@@ -12,8 +12,15 @@ namespace EF.DAL.Configuration
     {
         public BookConfiguration()
         {
-            Property(b => b.Author).HasColumnName("auteur");
-            Property(b => b.ISBN).HasColumnName("code_isbn");
+            Property(b => b.Author)
+                .HasColumnName("auteur")
+                .HasMaxLength(50);
+                
+            Property(b => b.ISBN)
+                .HasColumnName("code_isbn")
+                .IsRequired()
+                .HasMaxLength(13)
+                .IsFixedLength();
         }
     }
 }

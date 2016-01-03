@@ -13,10 +13,13 @@ This is the database diagram :
 
 - store all SQL queries in a log file
 - disable lazy loading - may improve performance
-- use a context initializer to insert data in the database
+- use a context initializer to insert data in the database before playing
+- composite keys (for loan)
 - many relationships tested to retrieve data
 - enum are stored / retrieved
-- inheritance is implemented with library items
+- inheritance (Table per Hierarchy) is implemented with library items (Discriminator column)
+- primary key and foreign key naming convention
+- configurations are moved into ***Configuration.cs files
 
 ### That it is not
 
