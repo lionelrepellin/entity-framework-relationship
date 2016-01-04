@@ -40,6 +40,10 @@ namespace EF
 
                 var dvd = ctx.LibraryItems.OfType<DVD>().First();
 
+                // use stored procedure
+                var borrowersWithDVD = ctx.FindBorrowersWhoOwnArticles("DVD");
+                
+
 
 
                 var borrower = ctx.Borrowers

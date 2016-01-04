@@ -2,6 +2,7 @@
 using EF.Domain.Borrower;
 using EF.Domain.Items;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Data.Entity;
 
@@ -164,9 +165,20 @@ namespace EF.DAL
 
             #endregion
 
+            #region Stored procedures
+
+            var files = Directory.GetFiles("StoredProcedures", "*.sql");
+            foreach (var file in files)
+            {
+                var content = File.ReadAllText(file);
+                context.Database.ExecuteSqlCommand(content);
+            }
+
+            #endregion
+
             context.SaveChanges();
 
             base.Seed(context);
-        }
-    }
+        }        
+    }    
 }

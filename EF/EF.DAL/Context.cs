@@ -2,7 +2,10 @@
 using EF.Domain;
 using EF.Domain.Borrower;
 using EF.Domain.Items;
+using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.SqlClient;
+using System.Linq;
 
 namespace EF.DAL
 {
@@ -48,6 +51,13 @@ namespace EF.DAL
             modelBuilder.Configurations.Add(new LoanConfiguration());
 
             base.OnModelCreating(modelBuilder);
+        }
+
+        //TODO put this method in an appropriate repository
+        public IEnumerable<Borrower> FindBorrowersWhoOwnArticles(string typeOfArticle)
+        {
+            var discriminator = new SqlParameter { ParameterName = "@discriminator", Value = typeOfArticle };
+            return Database.SqlQuery<Borrower>("exec FindBorrowerWhoOwnArticles @discriminator", discriminator).ToList();
         }
     }
 }
