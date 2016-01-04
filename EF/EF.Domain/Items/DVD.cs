@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace EF.Domain.Items
 {
-    public class DVD : LibraryItem
+    public class Dvd : LibraryItem
     {
         public string Summary { get; set; }
         public int Duration { get; set; }

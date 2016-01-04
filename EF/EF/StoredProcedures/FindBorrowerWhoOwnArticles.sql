@@ -9,4 +9,5 @@ BEGIN
 	WHERE e.id = p.emprunteur_id
 	AND a.id = p.article_id
 	AND a.Discriminator = @discriminator
+	AND p.date_retour IS NULL
 END

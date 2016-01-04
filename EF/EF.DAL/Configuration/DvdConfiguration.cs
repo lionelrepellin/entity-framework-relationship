@@ -5,7 +5,7 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace EF.DAL.Configuration
 {
-    public class DvdConfiguration : EntityTypeConfiguration<DVD>
+    public class DvdConfiguration : EntityTypeConfiguration<Dvd>
     {
         public DvdConfiguration()
         {

@@ -97,7 +97,7 @@ namespace EF.DAL
             };
             context.LibraryItems.Add(book1);
 
-            var dvd1 = new DVD
+            var dvd1 = new Dvd
             {
                 Status = ItemStatus.Loaned,
                 Language = Language.Dutch,
@@ -109,7 +109,7 @@ namespace EF.DAL
             };
             context.LibraryItems.Add(dvd1);
 
-            var dvd2 = new DVD
+            var dvd2 = new Dvd
             {
                 Status = ItemStatus.Available,
                 Language = Language.Spanish,
@@ -121,7 +121,7 @@ namespace EF.DAL
             };
             context.LibraryItems.Add(dvd2);
 
-            var cd1 = new CD
+            var cd1 = new Cd
             {
                 Artist = "Iron Maiden",
                 Language = Language.English,

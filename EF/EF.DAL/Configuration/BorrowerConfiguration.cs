@@ -26,7 +26,8 @@ namespace EF.DAL.Configuration
                 .IsRequired();
 
             Property(b => b.Age)
-                .HasColumnName("age");
+                .HasColumnName("age")
+                .IsOptional();
 
             // one-to-zero or one relationship
             // PK becomes a FK in another table

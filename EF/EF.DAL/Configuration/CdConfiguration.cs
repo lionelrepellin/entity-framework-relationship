@@ -5,7 +5,7 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace EF.DAL.Configuration
 {
-    public class CdConfiguration : EntityTypeConfiguration<CD>
+    public class CdConfiguration : EntityTypeConfiguration<Cd>
     {
         public CdConfiguration()
         {

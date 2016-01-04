@@ -54,7 +54,7 @@ namespace EF.DAL
         }
 
         //TODO put this method in an appropriate repository
-        public IEnumerable<Borrower> FindBorrowersWhoOwnArticles(string typeOfArticle)
+        public IEnumerable<Borrower> FindBorrowersWhoOwnsArticlesByType(string typeOfArticle)
         {
             var discriminator = new SqlParameter { ParameterName = "@discriminator", Value = typeOfArticle };
             return Database.SqlQuery<Borrower>("exec FindBorrowerWhoOwnArticles @discriminator", discriminator).ToList();

@@ -10,12 +10,16 @@ namespace EF.DAL.Configuration
         public LoanConfiguration()
         {
             ToTable("pret");
+
+            // Composite PK
             HasKey(p => new
             {
                 p.BorrowerId,
                 p.LibraryItemId
             });
-            
+
+            // SqlException: "The conversion of a datetime2 data type to a datetime data type resulted in an out-of-range value."
+            // http://www.mikesdotnetting.com/article/229/conversion-of-a-datetime2-data-type-to-a-datetime-data-type-resulted-in-an-out-of-range-value
             Property(p => p.DateBorrowed)
                 .HasColumnName("date_emprunt")
                 .HasColumnType("datetime2")

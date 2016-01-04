@@ -38,10 +38,10 @@ namespace EF
 
                 //var borrowersCount = ctx.Database.SqlQuery<int>("SELECT COUNT(0) FROM emprunteur").First();
 
-                var dvd = ctx.LibraryItems.OfType<DVD>().First();
+                var dvd = ctx.LibraryItems.OfType<Dvd>().First();
 
                 // use stored procedure
-                var borrowersWithDVD = ctx.FindBorrowersWhoOwnArticles("DVD");
+                var borrowersWithDVD = ctx.FindBorrowersWhoOwnsArticlesByType("DVD");
                 
 
 
