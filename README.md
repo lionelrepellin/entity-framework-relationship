@@ -20,6 +20,7 @@ This is the database diagram :
 - inheritance (Table per Hierarchy) is implemented with library items (Discriminator column)
 - primary key and foreign key naming convention
 - configurations are moved into ***Configuration.cs files
+- example of a stored procedure mapping
 
 ### That it is not
 
