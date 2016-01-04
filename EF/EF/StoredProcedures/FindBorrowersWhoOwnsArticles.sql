@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE FindBorrowerWhoOwnArticles
+﻿CREATE PROCEDURE FindBorrowersWhoOwnsArticles
 	@discriminator varchar(10)
 AS
 BEGIN
