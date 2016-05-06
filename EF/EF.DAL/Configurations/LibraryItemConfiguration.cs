@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
-namespace EF.DAL.Configuration
+namespace EF.DAL.Configurations
 {
     public class LibraryItemConfiguration : EntityTypeConfiguration<LibraryItem>
     {

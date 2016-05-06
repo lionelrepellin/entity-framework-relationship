@@ -1,4 +1,5 @@
 ﻿using EF.DAL;
+using EF.DAL.Repositories;
 using EF.Domain;
 using EF.Domain.Borrowers;
 using EF.Domain.Items;
@@ -43,10 +44,9 @@ namespace EF
                 var dvd = ctx.LibraryItems.OfType<Dvd>().First();
 
                 // use stored procedure
-                var borrowersWithDVD = ctx.FindBorrowersWhoOwnsArticlesByType("DVD");
+                var legacyRepository = new LegacyRepository(ctx);
+                var borrowersWithDVD = legacyRepository.FindBorrowersWhoOwnsArticlesByType("DVD");
                 
-
-
 
                 var borrower = ctx.Borrowers
                                     //.Include(b => b.Address)
