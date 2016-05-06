@@ -40,12 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CatalogType.cs" />
+    <Compile Include="Catalogs\CatalogType.cs" />
     <Compile Include="Genre.cs" />
     <Compile Include="Items\Book.cs" />
-    <Compile Include="Borrower\Borrower.cs" />
-    <Compile Include="Borrower\Address.cs" />
-    <Compile Include="Catalog.cs" />
+    <Compile Include="Borrowers\Borrower.cs" />
+    <Compile Include="Borrowers\Address.cs" />
+    <Compile Include="Catalogs\Catalog.cs" />
     <Compile Include="Items\CD.cs" />
     <Compile Include="Items\DVD.cs" />
     <Compile Include="Items\ItemStatus.cs" />

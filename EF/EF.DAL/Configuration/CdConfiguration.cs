@@ -9,8 +9,11 @@ namespace EF.DAL.Configuration
     {
         public CdConfiguration()
         {
-            Property(c => c.Artist).HasColumnName("artiste");
-            Property(c => c.TracksNumber).HasColumnName("nb_pistes");
+            Property(c => c.Artist)
+                .HasColumnName("artiste");
+
+            Property(c => c.TracksNumber)
+                .HasColumnName("nb_pistes");
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using EF.DAL.Configuration;
 using EF.Domain;
-using EF.Domain.Borrower;
+using EF.Domain.Catalogs;
+using EF.Domain.Borrowers;
 using EF.Domain.Items;
 using System.Collections.Generic;
 using System.Data.Entity;

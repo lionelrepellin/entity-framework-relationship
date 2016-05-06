@@ -1,6 +1,6 @@
 ﻿using EF.DAL;
 using EF.Domain;
-using EF.Domain.Borrower;
+using EF.Domain.Borrowers;
 using EF.Domain.Items;
 using System;
 using System.Collections.Generic;
@@ -15,6 +15,8 @@ namespace EF
         {
             using (var ctx = new Context())
             {
+
+                
                 /*
                 var borrowers = ctx.Borrowers.ToList();
                 //Write<Borrower>(borrowers);

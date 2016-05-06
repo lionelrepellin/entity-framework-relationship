@@ -1,4 +1,5 @@
-﻿using EF.Domain.Items;
+﻿using EF.Domain.Borrowers;
+using EF.Domain.Items;
 using System;
 using System.Collections.Generic;
 
@@ -12,7 +13,7 @@ namespace EF.Domain
 
         // FK
         public int BorrowerId { get; set; }
-        public virtual EF.Domain.Borrower.Borrower Borrower { get; set; }
+        public virtual Borrower Borrower { get; set; }
 
         // FK
         public int LibraryItemId { get; set; }

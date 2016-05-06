@@ -12,14 +12,24 @@ namespace EF.DAL.Configuration
         public LibraryItemConfiguration()
         {
             ToTable("article");
+
             HasKey(a => a.Id);
 
-            Property(a => a.Id).HasColumnName("id").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            Property(a => a.Id)
+                .HasColumnName("id")
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            Property(a => a.Title).HasColumnName("titre");
-            Property(a => a.Status).HasColumnName("statut");
-            Property(a => a.Language).HasColumnName("langage");
-            Property(a => a.CatalogId).HasColumnName("catalogue_id");
+            Property(a => a.Title)
+                .HasColumnName("titre");
+
+            Property(a => a.Status)
+                .HasColumnName("statut");
+
+            Property(a => a.Language)
+                .HasColumnName("langage");
+
+            Property(a => a.CatalogId)
+                .HasColumnName("catalogue_id");
 
             // one-to-many relationship
             HasMany(a => a.Loans)

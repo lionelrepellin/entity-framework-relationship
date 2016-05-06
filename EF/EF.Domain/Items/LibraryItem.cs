@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EF.Domain.Catalogs;
+using System;
 using System.Collections.Generic;
 
 namespace EF.Domain.Items

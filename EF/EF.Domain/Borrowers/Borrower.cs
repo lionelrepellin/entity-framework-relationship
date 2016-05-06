@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace EF.Domain.Borrower
+namespace EF.Domain.Borrowers
 {
     public class Borrower
     {

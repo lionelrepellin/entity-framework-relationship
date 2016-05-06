@@ -9,18 +9,23 @@ namespace EF.DAL.Configuration
     {
         public DvdConfiguration()
         {
-            Property(d => d.Duration).HasColumnName("duree");
-            Property(d => d.Summary).HasColumnName("resume");
+            Property(d => d.Duration)
+                .HasColumnName("duree");
+
+            Property(d => d.Summary)
+                .HasColumnName("resume");
 
             // many-to-many relationship
             // the table genre_article will be
             // automatically created
-            HasMany(d => d.Genres).WithMany().Map(x =>
-            {
-                x.MapLeftKey("article_id");
-                x.MapRightKey("genre_id");
-                x.ToTable("genre_article");
-            });
+            HasMany(d => d.Genres)
+                .WithMany()
+                .Map(x =>
+                {
+                    x.MapLeftKey("article_id");
+                    x.MapRightKey("genre_id");
+                    x.ToTable("genre_article");
+                });
         }
     }
 }

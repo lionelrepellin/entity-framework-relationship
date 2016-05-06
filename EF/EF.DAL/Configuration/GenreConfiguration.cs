@@ -10,10 +10,14 @@ namespace EF.DAL.Configuration
         public GenreConfiguration()
         {
             ToTable("genre");
+
             HasKey(g => g.Id);
 
-            Property(g => g.Id).HasColumnName("id");
-            Property(g => g.Description).HasColumnName("description");
+            Property(g => g.Id)
+                .HasColumnName("id");
+
+            Property(g => g.Description)
+                .HasColumnName("description");
         }
     }
 }
