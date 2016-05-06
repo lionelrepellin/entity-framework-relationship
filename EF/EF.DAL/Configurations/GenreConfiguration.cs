@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
 
-namespace EF.DAL.Configuration
+namespace EF.DAL.Configurations
 {
     public class GenreConfiguration : EntityTypeConfiguration<Genre>
     {
