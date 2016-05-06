@@ -47,13 +47,11 @@ namespace EF
                 var legacyRepository = new LegacyRepository(ctx);
                 var borrowersWithDVD = legacyRepository.FindBorrowersWhoOwnsArticlesByType("DVD");
                 
-
                 var borrower = ctx.Borrowers
                                     //.Include(b => b.Address)
                                     .First();
                 
-
-
+                
                 /*
                 var borrowerFull = ctx.Loans
                                         //.Include(a => a.LibraryItem)                    
