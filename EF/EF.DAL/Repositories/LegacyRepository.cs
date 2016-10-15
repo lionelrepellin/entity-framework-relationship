@@ -16,6 +16,7 @@ namespace EF.DAL.Repositories
             _context = context;
         }
 
+        [Obsolete("Prefer mapping instead of stored procedure")]
         public IEnumerable<Borrower> FindBorrowersWhoOwnsArticlesByType(string typeOfArticle)
         {
             var discriminator = new SqlParameter { ParameterName = "@discriminator", Value = typeOfArticle };

@@ -1,13 +1,12 @@
 ﻿using EF.DAL;
 using EF.DAL.Repositories;
 using EF.Domain;
-using EF.Domain.Borrower;
 using EF.Domain.Items;
 using System;
 using System.Data.Entity;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
+using EF.Domain.Catalogs;
 
 namespace EF
 {
@@ -119,7 +118,8 @@ namespace EF
                 var dvd = ctx.LibraryItems.OfType<Dvd>().First();
 
                 // use a stored procedure
-                var borrowersWithDVD = ctx.FindBorrowersWhoOwnsArticlesByType("DVD");                
+                var legacyRepository = new LegacyRepository(ctx);
+                var borrowersWithDVD = legacyRepository.FindBorrowersWhoOwnsArticlesByType("DVD");                
             }
 
             Console.Read();
