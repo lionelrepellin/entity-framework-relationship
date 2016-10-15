@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace EF.Domain
+namespace EF.Domain.Catalogs
 {
     public enum CatalogType
     {

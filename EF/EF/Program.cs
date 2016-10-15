@@ -4,10 +4,10 @@ using EF.Domain;
 using EF.Domain.Borrower;
 using EF.Domain.Items;
 using System;
+using System.Data.Entity;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
 
 namespace EF
 {

@@ -49,15 +49,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\BookConfiguration.cs" />
-    <Compile Include="Configuration\BorrowerAddressConfiguration.cs" />
-    <Compile Include="Configuration\BorrowerConfiguration.cs" />
-    <Compile Include="Configuration\CatalogConfiguration.cs" />
-    <Compile Include="Configuration\CdConfiguration.cs" />
-    <Compile Include="Configuration\DvdConfiguration.cs" />
-    <Compile Include="Configuration\GenreConfiguration.cs" />
-    <Compile Include="Configuration\LibraryItemConfiguration.cs" />
-    <Compile Include="Configuration\LoanConfiguration.cs" />
+    <Compile Include="Configurations\BookConfiguration.cs" />
+    <Compile Include="Configurations\BorrowerAddressConfiguration.cs" />
+    <Compile Include="Configurations\BorrowerConfiguration.cs" />
+    <Compile Include="Configurations\CatalogConfiguration.cs" />
+    <Compile Include="Configurations\CdConfiguration.cs" />
+    <Compile Include="Configurations\DvdConfiguration.cs" />
+    <Compile Include="Configurations\GenreConfiguration.cs" />
+    <Compile Include="Configurations\LibraryItemConfiguration.cs" />
+    <Compile Include="Configurations\LoanConfiguration.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="ContextInitializer.cs" />
     <Compile Include="Debug.cs" />

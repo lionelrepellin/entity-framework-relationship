@@ -1,15 +1,16 @@
-﻿using EF.Domain.Borrower;
+﻿using EF.Domain.Borrowers;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
 
-namespace EF.DAL.Configuration
+namespace EF.DAL.Configurations
 {
     public class BorrowerConfiguration : EntityTypeConfiguration<Borrower>
     {
         public BorrowerConfiguration()
         {
             ToTable("emprunteur");
+
             HasKey(b => b.Id);
 
             Property(b => b.Id)
@@ -31,7 +32,8 @@ namespace EF.DAL.Configuration
 
             // one-to-zero or one relationship
             // PK becomes a FK in another table
-            HasOptional(b => b.Address).WithRequired();
+            HasOptional(b => b.Address)
+                .WithRequired();
 
             // one-to-many relationship
             HasMany(b => b.Loans)
