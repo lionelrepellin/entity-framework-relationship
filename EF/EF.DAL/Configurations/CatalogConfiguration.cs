@@ -20,6 +20,7 @@ namespace EF.DAL.Configurations
                 .HasColumnName("type");
 
             // one-to-many relationship
+            // http://www.entityframeworktutorial.net/code-first/configure-one-to-many-relationship-in-code-first.aspx
             HasMany(c => c.Items)
                 .WithRequired(l => l.Catalog)
                 .HasForeignKey(l => l.CatalogId);

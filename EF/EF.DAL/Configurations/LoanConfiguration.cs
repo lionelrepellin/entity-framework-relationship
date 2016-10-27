@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
+using System.Data.Entity.Infrastructure.Annotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EF.DAL.Configurations
 {
@@ -30,14 +32,32 @@ namespace EF.DAL.Configurations
                 .HasColumnType("datetime2")
                 .HasPrecision(0);
 
+            // Create a index on a single column, Multiple indexes on a single column, Multi-Column indexes
+            // http://stackoverflow.com/questions/22618237/how-to-create-index-in-entity-framework-6-2-with-code-first
             Property(p => p.DateReturned)
-                .HasColumnName("date_retour");
+                .HasColumnName("date_retour")
+                // create a index on a single column
+                .HasColumnAnnotation(
+                    IndexAnnotation.AnnotationName,
+                    new IndexAnnotation(new IndexAttribute())); ;
 
             Property(p => p.BorrowerId)
-                .HasColumnName("emprunteur_id");
+                .HasColumnName("emprunteur_id")
+                .HasColumnAnnotation(
+                    IndexAnnotation.AnnotationName,
+                    new IndexAnnotation(new IndexAttribute("IX_Borrower_Item", 1)
+                    {
+                        IsUnique = true
+                    }));
 
             Property(p => p.LibraryItemId)
-                .HasColumnName("article_id");
+                .HasColumnName("article_id")
+                .HasColumnAnnotation(
+                    IndexAnnotation.AnnotationName,
+                    new IndexAnnotation(new IndexAttribute("IX_Borrower_Item", 2)
+                    {
+                        IsUnique = true
+                    }));
         }
     }
 }

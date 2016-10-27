@@ -5,13 +5,31 @@ namespace EF.Domain.Borrowers
 {
     public class Borrower
     {
-        public int Id { get; set; }        
-        public string Firstname { get; set; }
-        public string Lastname { get; set; }
-        public int Age { get; set; }
+        public int Id { get; private set; }
+        public string Firstname { get; private set; }
+        public string Lastname { get; private set; }
+        public int Age { get; private set; }
 
-        public virtual Address Address { get; set; }
+        public Address Address { get; private set; }
 
-        public virtual ICollection<Loan> Loans { get; set; }        
+        public ICollection<Loan> Loans { get; private set; }
+
+        public Borrower()
+        {
+            // parameterless constructor used by EF
+        }
+
+        public Borrower(string firstname, string lastname, int age)
+        {
+            Firstname = firstname;
+            Lastname = lastname;
+            Age = age;
+        }
+
+        public Borrower(string firstname, string lastname, int age, Address address)
+            : this(firstname, lastname, age)
+        {
+            Address = address;
+        }
     }
 }

@@ -5,7 +5,6 @@ using EF.Domain.Borrowers;
 using EF.Domain.Items;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
 
 namespace EF.DAL
 {
@@ -25,7 +24,13 @@ namespace EF.DAL
         public Context()
             : base("MainDatabaseContext")
         {
+
+#if DEBUG
+            Database.Log = (msg) => System.Diagnostics.Debug.WriteLine(msg);
+#else
             Database.Log = Debug.LogQuery;
+#endif
+
             Configuration.LazyLoadingEnabled = false;
         }
 

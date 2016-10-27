@@ -7,16 +7,35 @@ namespace EF.Domain
 {
     public class Loan
     {
-        public DateTime DateBorrowed { get; set; }
-        public DateTime DueDate { get; set; }
-        public DateTime? DateReturned { get; set; }
+        public DateTime DateBorrowed { get; private set; }
+        public DateTime DueDate { get; private set; }
+        public DateTime? DateReturned { get; private set; }
 
         // FK
-        public int BorrowerId { get; set; }
-        public virtual Borrower Borrower { get; set; }
+        public int BorrowerId { get; private set; }
+        public virtual Borrower Borrower { get; private set; }
 
         // FK
-        public int LibraryItemId { get; set; }
-        public virtual LibraryItem LibraryItem { get; set; }
+        public int LibraryItemId { get; private set; }
+        public virtual LibraryItem LibraryItem { get; private set; }
+
+        public Loan()
+        {
+            // parameterless constructor used by EF
+        }
+
+        public Loan(Borrower borrower, LibraryItem libraryItem, DateTime dueDate)
+        {
+            Borrower = borrower;
+            LibraryItem = libraryItem;
+            DueDate = dueDate;
+            DateBorrowed = DateTime.Now;
+        }
+
+        public Loan(Borrower borrower, LibraryItem libraryItem, DateTime dueDate, DateTime dateReturned)
+            : this(borrower, libraryItem, dueDate)
+        {
+            DateReturned = dateReturned;
+        }
     }
 }

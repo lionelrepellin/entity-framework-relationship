@@ -21,6 +21,10 @@ This is the database diagram :
 - primary key and foreign key naming convention
 - configurations are moved into ***Configuration.cs files
 - example of a stored procedure mapping
+- create index on single and multiple columns
+- entities properties are now 'private set'
+- entities status are attached and added / modified to the context
+- generic repository added
 
 ### That it is not
 

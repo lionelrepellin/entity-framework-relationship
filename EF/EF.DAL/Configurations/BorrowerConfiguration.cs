@@ -31,6 +31,7 @@ namespace EF.DAL.Configurations
                 .IsOptional();
 
             // one-to-zero or one relationship
+            // http://www.entityframeworktutorial.net/code-first/configure-one-to-one-relationship-in-code-first.aspx
             // PK becomes a FK in another table
             HasOptional(b => b.Address)
                 .WithRequired();

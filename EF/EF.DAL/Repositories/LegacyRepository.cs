@@ -13,6 +13,9 @@ namespace EF.DAL.Repositories
 
         public LegacyRepository(Context context)
         {
+            if (context == null)
+                throw new ArgumentNullException("context");
+
             _context = context;
         }
 

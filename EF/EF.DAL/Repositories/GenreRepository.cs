@@ -26,7 +26,7 @@ namespace EF.DAL.Repositories
             {
                 // this will not work !
                 // 'genre' entity was loaded outside from this context
-                genre.Description = description;
+                genre.SetDescription(description);
                 ctx.SaveChanges();
             }
         }
@@ -40,7 +40,7 @@ namespace EF.DAL.Repositories
                 var genre = ctx.Genres.Single(g => g.Id == id);
 
                 // modify description
-                genre.Description = description;
+                genre.SetDescription(description);
                 ctx.SaveChanges();
             }
         }
@@ -49,7 +49,7 @@ namespace EF.DAL.Repositories
         {
             using (var ctx = new Context())
             {
-                genre.Description = description;
+                genre.SetDescription(description);
 
                 // attach the updated entity to the context 
                 // and change his status
@@ -63,7 +63,7 @@ namespace EF.DAL.Repositories
         {
             using (var ctx = new Context())
             {
-                genre.Description = description;
+                genre.SetDescription(description);
 
                 // attach the updated entity to the context 
                 ctx.Genres.Attach(genre);

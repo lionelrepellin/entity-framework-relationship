@@ -14,7 +14,6 @@ namespace EF
     {
         static void Main(string[] args)
         {
-
             var genreRepository = new GenreRepository();
 
             // load a genre inside a context
@@ -59,7 +58,7 @@ namespace EF
             // ---------------------------------------------------------------------------------------
 
             // create a new 'genre' from scratch with an existing Id
-            var newGenreFromScratch = new Genre { Id = 2 };
+            var newGenreFromScratch = new Genre(2);
 
             // update the descritpion
             genreRepository.UpdateByChangingEntityStatusSecondWay(newGenreFromScratch, "Modified");
@@ -73,7 +72,7 @@ namespace EF
             // ---------------------------------------------------------------------------------------
 
             // add a new genre with generic repository
-            var newGenre = new Genre { Description = "Horror" };
+            var newGenre = new Genre("Horror");
             var genericRepository = new GenericRepository();
             genericRepository.GenericWayToAddAnEntity(newGenre);
 

@@ -9,6 +9,7 @@ namespace EF.DAL.Configurations
     public class LibraryItemConfiguration : EntityTypeConfiguration<LibraryItem>
     {
         // POI: because of inheritance you can see Discriminator column in article table
+        // http://www.entityframeworktutorial.net/code-first/inheritance-strategy-in-code-first.aspx
         public LibraryItemConfiguration()
         {
             ToTable("article");

@@ -18,6 +18,7 @@ namespace EF.DAL.Configurations
             // many-to-many relationship
             // the table genre_article will be
             // automatically created
+            // http://www.entityframeworktutorial.net/code-first/configure-many-to-many-relationship-in-code-first.aspx
             HasMany(d => d.Genres)
                 .WithMany()
                 .Map(x =>

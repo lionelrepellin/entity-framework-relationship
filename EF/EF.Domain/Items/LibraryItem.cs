@@ -6,15 +6,28 @@ namespace EF.Domain.Items
 {
     public abstract class LibraryItem
     {
-        public int Id { get; set; }
-        public ItemStatus Status { get; set; }
-        public Language Language { get; set; }
-        public string Title { get; set; }
+        public int Id { get; private set; }
+        public ItemStatus Status { get; private set; }
+        public Language Language { get; private set; }
+        public string Title { get; private set; }
 
         // FK
-        public int CatalogId { get; set; }
-        public virtual Catalog Catalog { get; set; }
+        public int CatalogId { get; private set; }
+        public Catalog Catalog { get; private set; }
 
-        public virtual ICollection<Loan> Loans { get; set; }
-    }    
+        public ICollection<Loan> Loans { get; private set; }
+
+        protected LibraryItem()
+        {
+            // parameterless constructor used by EF
+        }
+
+        protected LibraryItem(ItemStatus status, Language language, string title, Catalog catalog)
+        {
+            Status = status;
+            Language = Language;
+            Title = title;
+            Catalog = catalog;
+        }
+    }
 }
