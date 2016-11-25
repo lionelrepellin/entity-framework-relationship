@@ -28,7 +28,7 @@ This is the database diagram :
 
 ### Automatic code based migration
 
-- see ![this article](http://rdonfack.developpez.com/tutoriels/dotnet/entity-framework-decouverte-code-first-migrations/ "Entity Framework Code First Migration") for more informations
+- see [this article](http://rdonfack.developpez.com/tutoriels/dotnet/entity-framework-decouverte-code-first-migrations/ "Entity Framework Code First Migration") for more informations
 - what to do in order :
     1. in Package Manager Console (for EF.DAL project) : **Enable-Migrations**
         - **Configuration.cs** file will be created in Migrations folder
