@@ -18,6 +18,9 @@ namespace EF.DAL.Configurations
                 .IsRequired()
                 .HasMaxLength(13)
                 .IsFixedLength();
+
+            Property(b => b.PageCount)
+                .HasColumnName("nombre_page");               
         }
     }
 }

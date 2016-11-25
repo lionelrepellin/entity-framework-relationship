@@ -26,6 +26,20 @@ This is the database diagram :
 - entities status are attached and added / modified to the context
 - generic repository added
 
+### Automatic code based migration
+
+- see ![this article](http://rdonfack.developpez.com/tutoriels/dotnet/entity-framework-decouverte-code-first-migrations/ "Entity Framework Code First Migration") for more informations
+- what to do in order :
+    1. in Package Manager Console (for EF.DAL project) : **Enable-Migrations**
+        - **Configuration.cs** file will be created in Migrations folder
+        - **TIMESTAMP_InitialCreate.cs** file represents all you database
+    2. made some changes in your model (add PageCount property in Book.cs)    
+    3. now enter: **Add-Migration** *AddColumnBookPageCount* (describes your changes) in Package Manager Console to generate the differential
+        - a new **TIMESTAMP_AddColumnBookPageCount.cs** file has been created
+        - you can also add some SQL code in this file
+    4. update Context.OnModelCreating method
+        - sets the database initializer to use MigrateDatabaseToLatestVersion 
+
 ### That it is not
 
 No design pattern or architecture design can be found here - do not imitate this project - it's just a try to learn EF relationships.

@@ -5,6 +5,7 @@ using EF.Domain.Borrowers;
 using EF.Domain.Items;
 using System.Collections.Generic;
 using System.Data.Entity;
+using EF.DAL.Migrations;
 
 namespace EF.DAL
 {
@@ -54,6 +55,9 @@ namespace EF.DAL
 
             // loan
             modelBuilder.Configurations.Add(new LoanConfiguration());
+
+            // apply model changes to the database
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<Context, Configuration>());
 
             base.OnModelCreating(modelBuilder);
         }        

@@ -9,8 +9,8 @@ using EF.Domain.Catalogs;
 
 namespace EF.DAL
 {
-    //public class ContextInitializer : CreateDatabaseIfNotExists<Context>
-    public class ContextInitializer : DropCreateDatabaseAlways<Context>
+    public class ContextInitializer : CreateDatabaseIfNotExists<Context>
+    //public class ContextInitializer : DropCreateDatabaseAlways<Context>
     {
         protected override void Seed(Context context)
         {
