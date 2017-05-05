@@ -25,6 +25,7 @@ This is the database diagram :
 - entities properties are now 'private set'
 - entities status are attached and added / modified to the context
 - generic repository added
+- use convention to rename the Discriminator property on the fly
 
 ### Automatic code based migration
 
@@ -42,7 +43,7 @@ This is the database diagram :
 
 ### That it is not
 
-No design pattern or architecture design can be found here - do not imitate this project - it's just a try to learn EF relationships.
+No design pattern or architecture design can be found here - do not imitate this project - it's just a try to learn EF relationships. This example does not follow the standard database naming convention, [see an example here](http://stackoverflow.com/questions/3593582/database-naming-conventions-by-microsoft)
 
 ### Copyright and license
 
