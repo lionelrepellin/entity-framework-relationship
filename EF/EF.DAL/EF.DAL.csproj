@@ -60,6 +60,7 @@
     <Compile Include="Configurations\LoanConfiguration.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="ContextInitializer.cs" />
+    <Compile Include="Conventions\DiscriminatorConvention.cs" />
     <Compile Include="Debug.cs" />
     <Compile Include="Migrations\201610272043455_InitialCreate.cs" />
     <Compile Include="Migrations\201610272043455_InitialCreate.Designer.cs">

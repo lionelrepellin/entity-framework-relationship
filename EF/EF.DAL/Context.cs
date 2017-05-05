@@ -6,60 +6,65 @@ using EF.Domain.Items;
 using System.Collections.Generic;
 using System.Data.Entity;
 using EF.DAL.Migrations;
+using EF.DAL.Conventions;
 
 namespace EF.DAL
 {
-    public class Context : DbContext
-    {
-        public DbSet<Borrower> Borrowers { get; set; }
-        public DbSet<Catalog> Catalogs { get; set; }
-        public DbSet<Genre> Genres { get; set; }
-        public DbSet<LibraryItem> LibraryItems { get; set; }
-        public DbSet<Loan> Loans { get; set; }
+	public class Context : DbContext
+	{
+		public DbSet<Borrower> Borrowers { get; set; }
+		public DbSet<Catalog> Catalogs { get; set; }
+		public DbSet<Genre> Genres { get; set; }
+		public DbSet<LibraryItem> LibraryItems { get; set; }
+		public DbSet<Loan> Loans { get; set; }
 
-        static Context()
-        {
-            Database.SetInitializer<Context>(new ContextInitializer());
-        }
+		static Context()
+		{
+			//Database.SetInitializer<Context>(new ContextInitializer());
+			Database.SetInitializer<Context>(new DropCreateDatabaseAlways<Context>());
+		}
 
-        public Context()
-            : base("MainDatabaseContext")
-        {
+		public Context()
+			: base("MainDatabaseContext")
+		{
 
 #if DEBUG
-            Database.Log = (msg) => System.Diagnostics.Debug.WriteLine(msg);
+			Database.Log = (msg) => System.Diagnostics.Debug.WriteLine(msg);
 #else
             Database.Log = Debug.LogQuery;
 #endif
 
-            Configuration.LazyLoadingEnabled = false;
-        }
+			Configuration.LazyLoadingEnabled = false;
+		}
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            // borrower
-            modelBuilder.Configurations.Add(new BorrowerConfiguration());
-            modelBuilder.Configurations.Add(new BorrowerAddressConfiguration());
+		protected override void OnModelCreating(DbModelBuilder modelBuilder)
+		{
+			// rename Discriminator column to entity_type
+			modelBuilder.Conventions.Add(new DiscriminatorConvention());
 
-            // catalog
-            modelBuilder.Configurations.Add(new CatalogConfiguration());
+			// borrower
+			modelBuilder.Configurations.Add(new BorrowerConfiguration());
+			modelBuilder.Configurations.Add(new BorrowerAddressConfiguration());
 
-            // genres
-            modelBuilder.Configurations.Add(new GenreConfiguration());
+			// catalog
+			modelBuilder.Configurations.Add(new CatalogConfiguration());
 
-            // library items
-            modelBuilder.Configurations.Add(new LibraryItemConfiguration());
-            modelBuilder.Configurations.Add(new BookConfiguration());
-            modelBuilder.Configurations.Add(new DvdConfiguration());
-            modelBuilder.Configurations.Add(new CdConfiguration());
+			// genres
+			modelBuilder.Configurations.Add(new GenreConfiguration());
 
-            // loan
-            modelBuilder.Configurations.Add(new LoanConfiguration());
+			// library items
+			modelBuilder.Configurations.Add(new LibraryItemConfiguration());
+			modelBuilder.Configurations.Add(new BookConfiguration());
+			modelBuilder.Configurations.Add(new DvdConfiguration());
+			modelBuilder.Configurations.Add(new CdConfiguration());
 
-            // apply model changes to the database
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<Context, Configuration>());
+			// loan
+			modelBuilder.Configurations.Add(new LoanConfiguration());
 
-            base.OnModelCreating(modelBuilder);
-        }        
-    }
+			// apply model changes to the database
+			Database.SetInitializer(new MigrateDatabaseToLatestVersion<Context, Configuration>());
+
+			base.OnModelCreating(modelBuilder);
+		}
+	}
 }
